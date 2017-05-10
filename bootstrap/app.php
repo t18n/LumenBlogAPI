@@ -48,8 +48,6 @@ $app->singleton(
 	App\Console\Kernel::class
 	);
 
-$app->register('Nord\Lumen\Cors\CorsServiceProvider');
-
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -61,9 +59,9 @@ $app->register('Nord\Lumen\Cors\CorsServiceProvider');
 |
 */
 
-$app->middleware([
-   'Nord\Lumen\Cors\CorsMiddleware',
-]);
+// $app->middleware([
+//    //'Nord\Lumen\Cors\CorsMiddleware',
+// ]);
 
 // $app->routeMiddleware([
 //     //'cors' => \Barryvdh\Cors\HandleCors::class
