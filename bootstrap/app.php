@@ -48,6 +48,10 @@ $app->singleton(
 	App\Console\Kernel::class
 	);
 
+//Load CORS package
+$app->configure('cors');
+
+
 /*
 |--------------------------------------------------------------------------
 | Register Middleware
@@ -59,13 +63,13 @@ $app->singleton(
 |
 */
 
-// $app->middleware([
-//    App\Http\Middleware\ExampleMiddleware::class
-// ]);
+$app->middleware([
+   \Barryvdh\Cors\HandleCors::class
+]);
 
-// $app->routeMiddleware([
-//     'auth' => App\Http\Middleware\Authenticate::class,
-// ]);
+$app->routeMiddleware([
+    'cors' => \Barryvdh\Cors\HandleCors::class
+]);
 
 /*
 |--------------------------------------------------------------------------
@@ -81,15 +85,6 @@ $app->singleton(
 // $app->register(App\Providers\AppServiceProvider::class);
 // $app->register(App\Providers\AuthServiceProvider::class);
 // $app->register(App\Providers\EventServiceProvider::class);
-
-'providers' => [
-	'Tymon\JWTAuth\Providers\JWTAuthServiceProvider'
-],
-
-'aliases' => [
-	'JWTAuth' => 'Tymon\JWTAuth\Facades\JWTAuth',
-	'JWTFactory' => 'Tymon\JWTAuth\Facades\JWTFactory'
-],
 
 /*
 |--------------------------------------------------------------------------
