@@ -58,10 +58,3 @@ $factory->define(App\Role::class, function (Faker\Generator $faker) {
     'name' => $faker->jobTitle 
     ];
 });
-
-$factory->define(App\::class, function (Faker\Generator $faker) {
-    return [
-    'name' => $faker->jobTitle 
-    ];
-});
-
