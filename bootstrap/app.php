@@ -48,6 +48,7 @@ $app->singleton(
 	App\Console\Kernel::class
 	);
 
+$app->register('Nord\Lumen\Cors\CorsServiceProvider');
 
 /*
 |--------------------------------------------------------------------------
@@ -61,12 +62,12 @@ $app->singleton(
 */
 
 $app->middleware([
-   \Barryvdh\Cors\HandleCors::class
+   'Nord\Lumen\Cors\CorsMiddleware',
 ]);
 
-$app->routeMiddleware([
-    'cors' => \Barryvdh\Cors\HandleCors::class
-]);
+// $app->routeMiddleware([
+//     //'cors' => \Barryvdh\Cors\HandleCors::class
+// ]);
 
 /*
 |--------------------------------------------------------------------------
@@ -94,9 +95,6 @@ $app->routeMiddleware([
 |
 */
 
-//Load CORS package
-$app->register(Barryvdh\Cors\ServiceProvider::class);
-$app->configure('cors');
 
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
 	require __DIR__.'/../routes/web.php';
