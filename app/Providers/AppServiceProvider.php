@@ -17,7 +17,5 @@ class AppServiceProvider extends ServiceProvider
     		// Lumen Generator
     		$this->app->register('Wn\Generators\CommandsServiceProvider');
     	}
-
-        $app->register(Barryvdh\Cors\ServiceProvider::class);
     }
 }

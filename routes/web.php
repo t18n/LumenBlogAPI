@@ -6,7 +6,7 @@ $app->get('/', function () use ($app) {
 
 // Route::post('/api/register', 'RegisterController@register');
 
-$app->group(['prefix' => 'posts'], function ($app) {
+$app->group(['prefix' => 'posts', 'middleware' => ['cros']], function ($app) {
     $app->get('/','PostsController@posts');
     $app->post('/','PostsController@createPost');
     $app->get('{id}', 'PostsController@postById');

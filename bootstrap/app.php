@@ -48,9 +48,6 @@ $app->singleton(
 	App\Console\Kernel::class
 	);
 
-//Load CORS package
-$app->configure('cors');
-
 
 /*
 |--------------------------------------------------------------------------
@@ -96,6 +93,10 @@ $app->routeMiddleware([
 | can respond to, as well as the controllers that may handle them.
 |
 */
+
+//Load CORS package
+$app->register(Barryvdh\Cors\ServiceProvider::class);
+$app->configure('cors');
 
 $app->group(['namespace' => 'App\Http\Controllers'], function ($app) {
 	require __DIR__.'/../routes/web.php';
